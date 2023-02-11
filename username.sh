@@ -1,10 +1,4 @@
 #!/bin/bash
-username=$(echo "$1" | sed -e 's/,/ /g' | awk '{for(i=1;i<=NF;i++){print $i}}' | grep 'username:' | sed -e 's/username//g')
-test_username=${#username}
-if [ $test_username == 0 ]
-then 
-username=$1
-fi 
 echo "# 用户名枚举邮箱"
 echo "# 有一些提供商可能故意保留一些邮箱，或者存在关键字也显示已注册，实际木有，所以请自行甄别"
 ./vipsina.sh $username 

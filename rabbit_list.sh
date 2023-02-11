@@ -1,4 +1,16 @@
 #!/bin/bash
+tmp=$(ls | grep 'tmp')
+test_tmp=${#tmp}
+bak=$(ls | grep 'bak')
+test_bak=${#bak}
+if [ $test_bak == '0' ]
+then 
+mkdir bak
+fi
+if [ $test_tmp == '0' ]
+then  
+mkdir tmp
+fi 
 if [ $# == 0 ]
 then 
 echo "# eg: ./stalin_list.sh --help"
