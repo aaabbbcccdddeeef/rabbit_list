@@ -32,4 +32,5 @@ $ ./rabbit_list.sh --find 实验室,北京,
 后续模块大概每周提交一次更新...
 # 早期版本设想和演示：
 https://x.threatbook.com/v5/article?threatInfoID=41956
-
+# 提示
+不管你是做什么工作的，名单只是个工具，工具始终只是工具，重点从不在工具。
