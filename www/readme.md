@@ -13,6 +13,9 @@ eg: 使用 phpstudy 安装 php 7.4 运行 ngnix，并把网站主目录设置为
 需要指定数据类型，点击对应的数据节点
 ![image](https://user-images.githubusercontent.com/43908812/226352078-20f16a0d-2e0a-4979-a5ec-d0be06d303d4.png)
 # 模块使用
+单击节点，右上角可以切换图标，这也会改变节点的数据类型判断，在自动执行的选项里面，程序是根据图标来判断是否需要使用模块的
+![image](https://user-images.githubusercontent.com/43908812/227760813-ac7a275f-378a-425d-a2a0-5db0b9563896.png)
+
 模块增加了作用范围，以及对应模块的选择，同样是先点击节点，选择数据类型，只不过这次是在右边的下拉框
 ![image](https://user-images.githubusercontent.com/43908812/226353525-5ee977e3-4d1d-4be5-ae2e-4894f1d2b9fb.png)
 # 数据删除操作
