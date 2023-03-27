@@ -497,7 +497,17 @@ var list=network.getConnectedNodes(fromkeyword,'');
         console.log(network.body.data.nodes._data[node_id])
       }
     }
-    break;    
+    break;  
+    case 'inputreg':
+      var reg = new RegExp(document.getElementById('delvalue').value);  
+      for(node_id in network.body.data.nodes._data)
+    {
+    if(reg.test(network.body.data.nodes._data[node_id]))
+    {
+      delnode(network.body.data.nodes._data[node_id].id);
+    }
+    }
+      break;
     default:
 
    }
@@ -584,7 +594,7 @@ catch(err)
    <option value='<' >边<</option> 
    <option value='=' >边=</option> 
    <option value='>' >边></option> 
-  <!-- <option value='inputreg'>正则匹配</option>  -->
+  <option value='inputreg'>正则匹配</option> 
   </select>
   <input id='delvalue' value='1' style='position:absolute;width:5%;height:50%;right:10%;top:0%;margin:0'>1</input>
   <button style='position:absolute;width:5%;height:50%;right:20%;top:0%;margin:0'  value='delallreg' onclick="delbyfront()" >删除</button>
