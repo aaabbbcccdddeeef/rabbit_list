@@ -596,7 +596,7 @@ catch(err)
    <option value='<' >边<</option> 
    <option value='=' >边=</option> 
    <option value='>' >边></option> 
-   <option value='inputreg'>正则匹配</option>  
+  <!-- <option value='inputreg'>正则匹配</option>  -->
   </select>
   <input id='delvalue' value='1' style='position:absolute;width:5%;height:50%;right:10%;top:0%;margin:0'>1</input>
   <button style='position:absolute;width:5%;height:50%;right:20%;top:0%;margin:0'  value='delallreg' onclick="delbyfront()" >删除</button>
@@ -1140,8 +1140,12 @@ var company_reg=/(责任|集团|公司|有限|无限|社|会|厂|团队|工作�
 var address_reg=/(省|州|岛|市|城|区)/;
 var home_reg=/(站|中心|酒店|商场|局|路|园|街|办事处|期|号|栋|单元|楼)/;
 var url_reg=/^http(:|s:)\/\//;
-
+var location_reg=/^(location:\[)(.*)]$/;
 // 越靠前越优先返回
+if(location_reg.test(input_node_str))
+{
+  return 'location';
+}
 if(cn_idcard_reg.test(input_node_str))
 {
   return 'idcard';
