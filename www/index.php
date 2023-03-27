@@ -186,29 +186,17 @@ function shownodes(){
   // console.log('keyword:',keyword);
   var result='<div style="position:absolute;height:5%;width:10%;left:10%;margin:0;top:0">可能的节点</div>';
   num=0;
+  var keyword_reg = new RegExp("(.*)("+keyword+")(.*)");
   for(var obj in Object.getOwnPropertyNames(network.body.nodes)){
       shownode=Object.getOwnPropertyNames(network.body.nodes)[obj];
-     // console.log('shownode:',shownode1);
-     // shownode=shownode1.split('');
-     // console.log('shownode:',shownode);
-      for(let i=0;i<shownode.length;i++)
-      {
-        if(keyword[i]!=shownode[i])
-        {
-        // console.log(shownode[i],'in',shownode1,'is not fit');  
-        break;  
-        }
-        if(i>=keyword.length-1)
+        if(keyword_reg.test(shownode))
           {
             network.focus(shownode);
             topnum=num*5;
             result=result+'<input onclick="choose_node('+num+')" style="position:absolute;height:5%;width:10%;left:10%;margin:0;top:'+topnum+'%;" id="proble_node'+num+'"'+' value='+shownode+' placefolder='+shownode+'></input>';
-            // console.log('ok:',shownode);
             num++;
-            break;// success
           }
         }
-      }
       // i++;
       document.getElementById('addup').innerHTML=result;
       // console.log('insert=',result);
@@ -1103,15 +1091,24 @@ function close_nodelist(){
 for(var i=0;i<5000;i++){
   var node_choosed='proble_node'+i;
   // console.log('node_choosed:',node_choosed);
-  nodeid=document.getElementById(node_choosed).value;
-  if(!nodeid){
-   // console.log('nodeid:',nodeid,'can`t found');
+if(node_choosed)
+{
+  try{
+    nodeid=document.getElementById(node_choosed).value;
+  document.getElementById(node_choosed).remove();
+  }  
+  catch(err)
+  {
+    if(document.getElementById(node_choosed))
+    {
+      document.getElementById(node_choosed).remove();
+    }
+  }
+}
+else 
+{
     return ;
-    // err
-  }
-  else{
-    document.getElementById(node_choosed).remove();  
-  }
+}
 }
 }
 
