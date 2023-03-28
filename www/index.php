@@ -368,7 +368,7 @@ function set_imgtype()
   nodes.add(newNode);
 for(var i=0;i<list.length;i++)
 {
-  var line = {'from': nodeid,'to': list[i],'arrows': "from",'dashes': [5, 5, 3, 3], 'background': 'false'};
+  var line = {'from': nodeid,'to': list[i],'arrows': "to",'dashes': [5, 5, 3, 3], 'background': 'false'};
   edges.add(line);
 }
 return;
@@ -704,6 +704,11 @@ function testconnect(from,to)
         var myselect=document.getElementById("use_functions");
         var index=myselect.selectedIndex;
         var select=myselect.options[index].value; // 下拉菜单值
+        if(!document.getElementById('keyword4search').value)
+        {
+          console.log('未选中');
+          return ;
+        }
        // console.log('mode: ',select);
      switch(select) {
      case 'autoblank':
