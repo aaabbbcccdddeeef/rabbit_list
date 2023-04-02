@@ -43,10 +43,14 @@ access_by_cookie($config,$_COOKIE);
   {
     document.getElementById('loading').innerHTML='<div class="loading" style="position:absolute;right:48.5%;left:48.5%;top:48.5%;bottom:48.5%;background-color: aquamarine;"></div>'
 '<div class="loading" style="position:absolute;right:48.5%;left:48.5%;top:48.5%;bottom:48.5%;background-color: aquamarine;"></div>';
-  }
+return 1;  
+}
   function stoploading(object)
   {
-    document.getElementById('loading').innerHTML='';
+    if(document.getElementById('loading'))
+    {
+      document.getElementById('loading').innerHTML='';
+    }
   }
     function setnewkeyword(keyword){
         document.getElementById("keyword4search").innerHTML=keyword;
@@ -598,7 +602,7 @@ catch(err)
   </select>
   <input id='delvalue' value='1' style='position:absolute;width:5%;height:50%;right:10%;top:0%;margin:0'>1</input>
   <button style='position:absolute;width:5%;height:50%;right:20%;top:0%;margin:0'  value='delallreg' onclick="delbyfront()" >删除</button>
-<button onclick="execute_mode()" style="position:absolute;width:5%;height:50%;right:10%;top:50%;margin:0;">执行模块</button>
+<button onclick="loading()" style="position:absolute;width:5%;height:50%;right:10%;top:50%;margin:0;">执行模块</button>
 <!-- <iframe src='./search.php' style="position:absolute;width:15%;height:80%;left:5%;top:5%;top:5%;background-color:#39c5bb;border:0">从数据库查询</iframe>
 -->
 <div style="position:absolute;width:10%;height:50%;background-color:#39c5bb;left:0;right:0;top:0;bottom:0;" >
@@ -646,6 +650,16 @@ foreach ($search as $v)
        addnode(startnode,newnodeid,newnodeid,nodes,edges);
        // alert(startnode);
     }
+
+function loading()
+{
+  setTimeout( function() {
+   stoploading(console.log('end'));
+});
+startloading(console.log('start'));
+console.log(execute_mode());
+
+}
 
 function testconnect(from,to)
 {
@@ -700,34 +714,37 @@ function testconnect(from,to)
     }
     function execute_mode()
     {
-        startloading();
+        console.log('startloading');
         var myselect=document.getElementById("use_functions");
         var index=myselect.selectedIndex;
         var select=myselect.options[index].value; // 下拉菜单值
-        if(!document.getElementById('keyword4search').value)
-        {
-          console.log('未选中');
-          return ;
-        }
        // console.log('mode: ',select);
      switch(select) {
      case 'autoblank':
         // 简易枚举
-        stoploading(blankfront());
+        if(!document.getElementById('keyword4search').value)
+        {
+          alert('未选中');
+        //  stoploading();
+          return ;
+        }
+       blankfront();
       break;
      case 'search_node_execmode':
-      stoploading(search_node_execmode());
+     var c=search_node_execmode();
       break;
      case 'childnodes_node_execmodes':
-      stoploading(childnodes_node_execmodes());
+    var b=childnodes_node_execmodes();
       break;
      case 'singlenode_execmode':
-      stoploading(singlenode_execmode());
+      var a=singlenode_execmode();
       break; 
      default:
       alert('未选择模块');
-      stoploading();
+    //  stoploading();
+      return ;
 } 
+return ;
     }
 
 function setblank()
@@ -742,17 +759,17 @@ switch(node_choosed)
 case 'autoblank':
   blankfront();
         // 简易枚举
-        stoploading();
+    //    stoploading();
 break;
 case 'advance_phone_blank':
   advance_phone_blank();
-  stoploading();
+//  stoploading();
 break;
 default:
   console.log('not set');    
-  stoploading();
+ // stoploading();
 }
-stoploading();
+// stoploading();
 }
 
 
@@ -891,6 +908,7 @@ for(i in network.body.nodes){
     console.log(network.body.nodes[i].id);
   }
   }
+  return 1;
 }
 
 function childnodes_node_execmodes()
@@ -910,17 +928,21 @@ var  list=network.getConnectedNodes(fromkeyword,'');
   // console.log(list[num]);
   }
 }
+return 1;
 }
 
 function singlenode_execmode()
 {
   var singlenode=document.getElementById('keyword4search').value;
   addnode_bymode(singlenode);
+  return 1;
 }
+
+
 
 function addnode_type(input_mode)
 {
-register=/(_phone_reg.php)$/i;
+register=/(_reg.php)$/i;
 if(register.test(input_mode))
 {
 return 'reg';
