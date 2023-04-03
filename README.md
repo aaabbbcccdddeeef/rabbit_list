@@ -17,24 +17,25 @@ by 某不愿透露姓名的画师小姐姐
 
 # 当前版本
 初步覆盖国内开发者常去的一些平台的信息收集，具备了一定的对开发者的手机号和邮箱的信息收集能力
-目前
-支持从 CSDN,Github,bilibili,Niuke,Leetcode等平台搜索用户名
+ 目前：
 
-支持从 CSDN，Github,Exploit-db,zhihu,aiqicha,gitlab,niuke,leetcode等等爬取基本信息
+用户名: 支持从 CSDN,Github,bilibili,Niuke,Leetcode等平台搜索用户名
 
-支持从 godaddy,csdn,88mail找回部分信息
+主页信息: 支持从 CSDN，Github,Exploit-db,zhihu,aiqicha,gitlab,niuke,leetcode等等爬取基本信息
 
-支持通过用户名枚举 网易，gmail等等
+自动找回: 支持从 godaddy,csdn,88mail找回部分信息
 
-支持从 手机号枚举学习，开发，工具，威胁情报等网站注册枚举
+用户名枚举邮箱: 支持通过用户名枚举 网易，gmail等等
 
-支持 部分黑客可能会使用的工具类网站枚举注册（积极收集接口和开发中）
+手机号画像: 支持从 手机号枚举学习，开发，工具，威胁情报等网站注册枚举
 
-支持 whois，备案反查
+邮箱画像: 支持 部分黑客可能会使用的工具类网站枚举注册（积极收集接口和开发中）
 
-支持 ip POI反查
+信息反查: 支持 whois，备案反查等
 
-其它信息的收集......
+地理位置开源情报: 支持 ip POI反查等
+
+其它信息的收集: ......
 
 目前依旧在积极维护，主要是增加有效的数据来源。
 
