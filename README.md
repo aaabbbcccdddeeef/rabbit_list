@@ -21,7 +21,7 @@ by 某不愿透露姓名的画师小姐姐
 
 用户名: 支持从 CSDN,Github,bilibili,Niuke,Leetcode等平台搜索用户名
 
-主页信息: 支持从 CSDN，Github,Exploit-db,zhihu,aiqicha,gitlab,niuke,leetcode等等爬取基本信息
+主页信息: 支持从 CSDN，Github,Exploit-db,zhihu,aiqicha,gitte,niuke,leetcode等等爬取基本信息
 
 自动找回: 支持从 godaddy,csdn,88mail找回部分信息
 
