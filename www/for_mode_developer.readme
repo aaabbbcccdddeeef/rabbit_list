@@ -1,0 +1,33 @@
+# mode开发指南
+
+mode 在文件夹中的位置 : /数据类型名/来源/mode名字.php
+也就是说，如果你要开发一个mode，首先是，mode本身的数据类型，这个数据类型 需要 $_GET['数据类型名']; 中的数据类型名字与文件夹的一致。来源文件夹不可省略
+php文件开头两行规定为
+
+include '../../../config.php';
+access_by_cookie($config,$_COOKIE);
+
+这是为了限制访问，以及获取api
+如果有新增apikey，把key的名字写在/www/config.php的config数组里面
+形如
+'key1' => $value1,
+'key2' => $value2
+ 
+分类：
+我简单的定义了： 
+检验存在:test_exist.php
+注册检测:_reg.php
+搜索: search.php
+信息爬取: info.php
+找回: forget.php
+实际你可以随便写，除了注册监测要求文件后缀必须是 _reg.php,返回结果只能是
+true 表注册
+false 无法判断注册或未注册
+
+返回结果
+节点值之间用 ',' 隔开，如果后面的节点需要作为当前字节点，在当前节点输出 <newnode>
+eg: ,<newnode>,lidazhi,男,肥宅，
+那么肥宅，男就会作为lidazhi的字节点。需注意，如果再次出现<newnode>
+eg:,<newnode>,lidazhi,男,肥宅,<newnode>,女装大佬,女,卷王,
+那么女装大佬不是lidazhi的字节点，但的确是女，卷王的父节点，也就是说，一个模块执行一次，最多距离选中节点生成两代的节点，并不是一直向下延续的。
+
