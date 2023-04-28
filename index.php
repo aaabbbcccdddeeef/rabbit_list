@@ -7,7 +7,7 @@ access_by_cookie($config,$_COOKIE);
 <meta charset="utf-8">
     <script type="text/javascript" src="../../dist/vis.js"></script>
     <link href="../../dist/vis.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="./index.js?1=00"></script>
+    <script type="text/javascript" src="./index.js?1=000"></script>
     <link href="./index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -66,7 +66,7 @@ access_by_cookie($config,$_COOKIE);
 
 </div>            
     <div id='loading' ></div>
-    <div id='wait_num' style='position:absolute;margin:0 auto;left:44.5%;top:65%;width:12%;height:3%;z-index:50;z-index:-99'></div>
+    <div id='wait_num' style='position:absolute;margin:0 auto;left:44.5%;top:65%;width:12%;height:3%;'></div>
     <div id='stoptry' style='position:absolute;margin:0 auto;left:48.5%;top:75%;width:4%;height:3%;z-index:50;'></div>
     <!--- <div id="mynetwork"></div> -->
 </div>

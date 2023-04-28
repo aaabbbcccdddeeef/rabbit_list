@@ -668,14 +668,15 @@ function status_show()
   wait_num=fnodes_wait_toexec.length;
   if(wait_num!=0)
   {
-  var str1='<div style="background-color:27C6AC ;height:100%;width:100%"><p style="text-align: center;">剩余任务数: '+wait_num+'</p></div>';  
+  let str1='<div style="background-color:27C6AC;height:100%;width:100%;z-index:9999"><p style="text-align: center;">剩余任务数: '+wait_num+'</p></div>';  
   document.getElementById('wait_num').innerHTML=str1;
   document.getElementById('stoptry').innerHTML='<button onclick="stoptry()" style="background-color:27C6AC ">取消加载</button>';
   }
   else
   {
-  var str1='<div style="background-color:27C6AC ;height:100%;width:100%"><p style="text-align: center;"> 处理数据 </p></div>';   
-  if(json_array.length>0)
+  let str1='<div style="background-color:27C6AC ;height:100%;width:100%;z-index:999"><p style="text-align: center;"> 处理数据 </p></div>';   
+ 
+  if(json_array.length!=0)
   {
   document.getElementById('wait_num').innerHTML=str1;
   document.getElementById('stoptry').innerHTML='<button onclick="stoptry()" style="background-color:#39c5b0">取消加载</button>';
